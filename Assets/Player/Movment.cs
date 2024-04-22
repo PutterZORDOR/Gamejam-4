@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Data.Common;
 using UnityEngine;
 
 public class Movment : MonoBehaviour
 {
     private float horizontal;
-    private float speed = 8f;
-    private float jumpingPower = 30f;
+    public float speed = 8f;
+    public float jumpingPower = 30f;
+    private bool IsJumping = false;
+    private float JumpTime;
+    public float JumpStartTime;
     private bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
@@ -17,18 +21,49 @@ public class Movment : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-
-        if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-
-         if (Input.GetButtonDown("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * .5f);
-        }
-
+        Debug.Log(IsJumping);
+        Jump();
         Flip();
+    }
+
+    void Jump ()
+    {
+        if (IsGrounded() == true && Input.GetButtonDown("Jump"))
+        {
+            IsJumping = true;
+            JumpTime = JumpStartTime;
+            rb.velocity = Vector2.up * jumpingPower;
+        }
+
+        if (Input.GetButton("Jump") && IsJumping == true)
+        {
+            if (JumpTime > 0 )
+            {
+                rb.velocity = Vector2.up * jumpingPower;
+                JumpTime = JumpTime - Time.deltaTime;
+            }
+            else
+            {
+                IsJumping = false;
+            }
+        }
+
+        if (Input.GetButtonUp("Jump"))
+        {
+            IsJumping = false;
+        }
+
+        if (!IsGrounded() == false && IsJumping == false)
+        {   
+            if (rb.gravityScale < 5f)
+            {
+                rb.gravityScale += 2f;
+            }
+        }
+        else
+        {
+            rb.gravityScale = 4f;
+        }
     }
 
     private void FixedUpdate()
