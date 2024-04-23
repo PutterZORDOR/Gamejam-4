@@ -13,7 +13,7 @@ public class bulletDown : MonoBehaviour
 
     private void Start()
     {
-        rb.velocity = Vector2.one * speed;
+        rb.velocity = transform.right * speed;
     }
 
     private void Update()

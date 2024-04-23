@@ -10,6 +10,7 @@ public class EnermyHammer : MonoBehaviour
     private GameObject player;
     public bool chase = false;
     public Transform startPoint;
+    
 
     private void Start()
     {
@@ -47,4 +48,5 @@ public class EnermyHammer : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
+
 }

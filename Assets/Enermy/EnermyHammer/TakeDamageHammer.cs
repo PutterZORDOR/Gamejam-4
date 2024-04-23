@@ -1,16 +1,15 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakeDmgPaper : MonoBehaviour
+public class TakeDamageHammer : MonoBehaviour
 {
     public int Hp = 40;
-    public void TakeHitPaper(int DmgToPaper)
+    public void TakeHitHammer(int DmgToHammer)
     {
-        Hp -= DmgToPaper;
+        Hp -= DmgToHammer;
 
-        if (Hp <= 0) 
+        if (Hp <= 0)
         {
             Die();
         }
@@ -21,6 +20,4 @@ public class TakeDmgPaper : MonoBehaviour
         Debug.Log("ตาย");
         Destroy(gameObject);
     }
-
-    
 }
