@@ -24,13 +24,21 @@ public class PlateformMove : MonoBehaviour
         Platform.position = Vector2.MoveTowards(Platform.position, targetPos, Speed * Time.deltaTime);
     }
 
-    private void OntriggerEnter2D(Collider2D Collision)
-    {
-       Debug.Log(Collision);
+    void OnTriggerEnter2D(Collider2D col)
+    {   
+        if (col.gameObject.name == "Player")
+        {
+            Debug.Log(col.gameObject.name + " : " + gameObject.name + " : " + Time.time);
+
+            col.transform.SetParent(this.transform);
+        }
     }
 
-      private void OntriggerExit2D(Collider2D Collision)
-    {
-        Debug.Log(Collision);
+        void OnTriggerExit2D(Collider2D col)
+    {   
+        if (col.gameObject.name == "Player")
+        {
+            col.transform.SetParent(null);
+        }
     }
 }
