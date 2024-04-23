@@ -11,7 +11,8 @@ public class Movment : MonoBehaviour
     private bool IsJumping = false;
     private float JumpTime;
     public float JumpStartTime;
-    private bool isFacingRight = true;
+    public GameObject Character;
+    public bool isFacingRight = true;
 
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
@@ -67,7 +68,7 @@ public class Movment : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {   
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
     private bool IsGrounded()
@@ -76,12 +77,15 @@ public class Movment : MonoBehaviour
     }
     private void Flip()
     {
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
-        }
+        //{if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        //{
+        //    isFacingRight = !isFacingRight;
+        //    Vector3 localScale = transform.localScale;
+        //    localScale.x *= -1f;
+        //    transform.localScale = localScale;
+        //}
+
+        if (!Mathf.Approximately(0, horizontal))
+        Character.transform.rotation = horizontal < 0 ? Quaternion.Euler(0,180,0) : Quaternion.identity;
     }
 }
