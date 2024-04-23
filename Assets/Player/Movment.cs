@@ -21,7 +21,7 @@ public class Movment : MonoBehaviour
     void Update()
     {
         horizontal = Input.GetAxis("Horizontal");
-        Debug.Log(IsJumping);
+       // Debug.Log(IsJumping);
         Jump();
         Flip();
     }
