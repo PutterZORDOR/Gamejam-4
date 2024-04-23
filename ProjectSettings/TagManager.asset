@@ -5,7 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Environment
-  - Hammer Enermy
+  - HammerEnermy
+  - ScissorsEnermy
   layers:
   - Default
   - TransparentFX
