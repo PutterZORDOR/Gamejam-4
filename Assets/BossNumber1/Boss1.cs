@@ -15,11 +15,11 @@ public class Boss1 : MonoBehaviour
 
     public GameObject ProjectileOBJ;
     public GameObject ProjectileOBJ2;
+    public GameObject ProjectileOBJ3;
+
+    public GameObject ProjectileMain3;
 
     private bool dbxproj = false;
-
-    private GameObject oldp1;
-    private GameObject oldp2;
 
     void Update()
     {
@@ -35,7 +35,7 @@ public class Boss1 : MonoBehaviour
     IEnumerator xProjectile()
     {   
         dbxproj = true;
-        int ran = Random.Range(1, 4);
+        int ran = Random.Range(1, 5);
         Debug.Log(ran);
         if (ran == 1)
         {
@@ -47,8 +47,23 @@ public class Boss1 : MonoBehaviour
         }
         if (ran == 3)
         {
-            GameObject p1 = Instantiate(ProjectileOBJ2, firepointRightX.position, firepointRightX.rotation);
-            GameObject p2 = Instantiate(ProjectileOBJ2, firepointLeftX.position, firepointLeftX.rotation);
+            Instantiate(ProjectileOBJ2, firepointRightX.position, firepointRightX.rotation);
+            Instantiate(ProjectileOBJ2, firepointLeftX.position, firepointLeftX.rotation);
+        }
+        if (ran == 4)
+        {
+            GameObject _MAINPOS = Instantiate(ProjectileMain3, gameObject.transform.position, gameObject.transform.rotation);
+
+            GameObject Pos1 = _MAINPOS.transform.GetChild(0).gameObject;
+            GameObject Pos2 = _MAINPOS.transform.GetChild(1).gameObject;
+            GameObject Pos3 = _MAINPOS.transform.GetChild(2).gameObject;
+
+            GameObject _PJ1 = Instantiate(ProjectileOBJ3, Pos1.transform.position, Pos1.transform.rotation);
+            _PJ1.transform.parent = _MAINPOS.transform;
+            GameObject _PJ2 = Instantiate(ProjectileOBJ3, Pos2.transform.position, Pos2.transform.rotation);
+             _PJ2.transform.parent = _MAINPOS.transform;
+            GameObject _PJ3 = Instantiate(ProjectileOBJ3, Pos3.transform.position, Pos3.transform.rotation);
+             _PJ3.transform.parent = _MAINPOS.transform;
         }
 
         yield return new WaitForSeconds(1f);

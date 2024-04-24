@@ -4780,6 +4780,10 @@ MonoBehaviour:
     type: 3}
   ProjectileOBJ2: {fileID: 8911428965627011900, guid: 3c7c3a8bc2110a6489cd88e1d69e76a9,
     type: 3}
+  ProjectileOBJ3: {fileID: 8911428965627011900, guid: 89663f49ef66f424bbc0262b7a6c40fb,
+    type: 3}
+  ProjectileMain3: {fileID: 4141510078400226353, guid: 726570ecd6dcadc48a0aa486a53b807c,
+    type: 3}
 --- !u!1 &2042775301
 GameObject:
   m_ObjectHideFlags: 0

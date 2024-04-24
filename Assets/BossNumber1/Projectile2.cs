@@ -25,7 +25,13 @@ public class Projectile2 : MonoBehaviour
         {
             ReflectProjectile(rb, collision.contacts[0].normal);
         }
+        if (collision.gameObject.name == "Player")
+        {   
+            collision.gameObject.GetComponent<HealthCode>().Health -= 1;
+            Destroy(gameObject);
+        }
     }
+
 
     private void ReflectProjectile(Rigidbody2D rb, Vector2 reflectVector)
     {    
