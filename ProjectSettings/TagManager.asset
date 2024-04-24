@@ -7,7 +7,6 @@ TagManager:
   - Environment
   - HammerEnermy
   - ScissorsEnermy
-  - Boss2
   layers:
   - Default
   - TransparentFX
@@ -16,9 +15,9 @@ TagManager:
   - Water
   - UI
   - Player
-  - HammerEnermy
-  - PaperEnermy
-  - ScisEnermy
+  - Bullet
+  - 
+  - 
   - 
   - 
   - 

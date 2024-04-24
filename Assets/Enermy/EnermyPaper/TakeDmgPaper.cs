@@ -5,14 +5,7 @@ using UnityEngine;
 
 public class TakeDmgPaper : MonoBehaviour
 {
-    public int PlusScore = 100;
-    private ScoreCon scoreController;
-    public int Hp = 40;
-
-    private void Awake()
-    {
-        scoreController = FindAnyObjectByType<ScoreCon>();
-    }
+    public int Hp = 100;
     public void TakeHitPaper(int DmgToPaper)
     {
         Hp -= DmgToPaper;
@@ -29,9 +22,5 @@ public class TakeDmgPaper : MonoBehaviour
         Destroy(gameObject);
     }
 
-    public void AllocateScore()
-    {
-        scoreController.AddScore(PlusScore);
-    }
-
+    
 }

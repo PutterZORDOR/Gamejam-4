@@ -11,12 +11,9 @@ public class EnermyHammer : MonoBehaviour
     public bool chase = false;
     public Transform startPoint;
 
-    
-
-    private void Awake()
+    private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        
 
     }
 
@@ -50,5 +47,4 @@ public class EnermyHammer : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
     }
-
 }
