@@ -5,7 +5,7 @@ using UnityEngine;
 public class TakeDamageHammer : MonoBehaviour
 {
     public int Hp = 40;
-    public int PlusScore = 10;
+    public int PlusScore = 100;
     private ScoreCon scoreController;
 
     private void Awake()

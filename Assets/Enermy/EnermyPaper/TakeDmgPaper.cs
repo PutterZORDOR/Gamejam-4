@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TakeDmgPaper : MonoBehaviour
 {
-    public int PlusScore = 10;
+    public int PlusScore = 100;
     private ScoreCon scoreController;
     public int Hp = 40;
 

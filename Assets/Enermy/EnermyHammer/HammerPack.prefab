@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8604676548848173791}
   m_Layer: 7
   m_Name: Enrmy hammer
-  m_TagString: Hammer Enermy
+  m_TagString: HammerEnermy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -358,7 +358,7 @@ Transform:
   - {fileID: 1891362999614002838}
   - {fileID: 3765223239687197289}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4307779932078754066
 GameObject:
