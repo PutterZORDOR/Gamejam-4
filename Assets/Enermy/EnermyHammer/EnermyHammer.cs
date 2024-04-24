@@ -10,11 +10,13 @@ public class EnermyHammer : MonoBehaviour
     private GameObject player;
     public bool chase = false;
     public Transform startPoint;
+
     
 
-    private void Start()
+    private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        
 
     }
 

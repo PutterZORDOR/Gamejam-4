@@ -8,6 +8,7 @@ TagManager:
   - HammerEnermy
   - ScissorsEnermy
   - Hammer Enermy
+  - Boss2
   layers:
   - Default
   - TransparentFX
