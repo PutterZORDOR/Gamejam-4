@@ -8,8 +8,15 @@ public class AIPlayerDetect : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.name == "Player")
-        {
-            Boss.GetComponent<Boss1>().target = other.gameObject;
+        {   
+            if (Boss.GetComponent<Boss1>())
+            {
+                Boss.GetComponent<Boss1>().target = other.gameObject;
+            }
+            if (Boss.GetComponent<Boss2Ai>())
+            {
+                Boss.GetComponent<Boss2Ai>().target = other.gameObject;
+            }
         }
     }
 }

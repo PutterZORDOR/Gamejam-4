@@ -9,7 +9,8 @@ public class HealthCode : MonoBehaviour
    public int Health = 5;
    private int OldHealth;
    public GameObject GameOverScene;
-   public Transform player;
+   public GameObject player;
+   public Color whengethit;
 
    void Start()
    {
@@ -26,8 +27,19 @@ public class HealthCode : MonoBehaviour
       
       if (Health != OldHealth)
       {
-         
          OldHealth = Health;
+         StartCoroutine(HitEffect());
       }
+   }
+
+   IEnumerator HitEffect ()
+   {
+      player.GetComponent<SpriteRenderer>().color = whengethit;
+      yield return new WaitForSeconds(.1f);
+      player.GetComponent<SpriteRenderer>().color = Color.white;
+      yield return new WaitForSeconds(.1f);
+      player.GetComponent<SpriteRenderer>().color = whengethit;
+      yield return new WaitForSeconds(.1f);
+       player.GetComponent<SpriteRenderer>().color = Color.white;
    }
 }
