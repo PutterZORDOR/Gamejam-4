@@ -10,6 +10,7 @@ public class EnermyHammer : MonoBehaviour
     private GameObject player;
     public bool chase = false;
     public Transform startPoint;
+    public int DMG = 1;
 
     private void Start()
     {

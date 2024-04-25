@@ -8,6 +8,7 @@ public class EnermyScissors : MonoBehaviour
     bool isFacingRigibody;
     Rigidbody2D rb;
     BoxCollider2D myBoxCollider;
+    public int DMG = 1;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

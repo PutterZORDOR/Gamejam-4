@@ -17,14 +17,25 @@ public class Movment : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
+    
+    [SerializeField] private TrailRenderer tr;
+    
+
+    private void Start()
+    {
+       
+    }
 
     // Update is called once per frame
     void Update()
     {
+        
         horizontal = Input.GetAxis("Horizontal");
        // Debug.Log(IsJumping);
         Jump();
         Flip();
+        
+        
     }
 
     void Jump ()
@@ -68,7 +79,7 @@ public class Movment : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {   
+    {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
     private bool IsGrounded()
@@ -87,5 +98,7 @@ public class Movment : MonoBehaviour
 
         if (!Mathf.Approximately(0, horizontal))
         Character.transform.rotation = horizontal < 0 ? Quaternion.Euler(0,180,0) : Quaternion.identity;
-    }
+    }    
+    
+
 }
