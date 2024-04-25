@@ -1,0 +1,31 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "G jam 4.moc3",
+		"Textures": [
+			"G jam 4.1024/texture_00.png"
+		],
+		"Physics": "G jam 4.physics3.json",
+		"DisplayInfo": "G jam 4.cdi3.json",
+		"Motions": {
+			"": [
+				{
+					"File": "Scene1.motion3.json"
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": []
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": []
+		}
+	],
+	"HitAreas": []
+}

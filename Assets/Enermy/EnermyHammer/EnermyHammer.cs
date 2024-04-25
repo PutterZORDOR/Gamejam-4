@@ -10,7 +10,10 @@ public class EnermyHammer : MonoBehaviour
     private GameObject player;
     public bool chase = false;
     public Transform startPoint;
+<<<<<<< Updated upstream
     public int DMG = 1;
+=======
+>>>>>>> Stashed changes
 
     private void Start()
     {
