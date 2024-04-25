@@ -28,7 +28,6 @@ public class TakeDMGScissor : MonoBehaviour
 
     public void Die()
     {
-        Debug.Log("ตาย");
         Destroy(gameObject);
         ScoreCon.instance.AddScore(PlusScore);
     }
