@@ -79,7 +79,7 @@ public class Movment : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
+    {   
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
     private bool IsGrounded()
@@ -98,7 +98,11 @@ public class Movment : MonoBehaviour
 
         if (!Mathf.Approximately(0, horizontal))
         Character.transform.rotation = horizontal < 0 ? Quaternion.Euler(0,180,0) : Quaternion.identity;
+<<<<<<< Updated upstream
     }    
     
 
+=======
+    }
+>>>>>>> Stashed changes
 }
