@@ -17,10 +17,13 @@ public class AIPlayerDetect : MonoBehaviour
             {
                 Boss.GetComponent<Boss2Ai>().target = other.gameObject;
             }
+<<<<<<< Updated upstream
             if (Boss.GetComponent<Boss3AI>())
             {
                 Boss.GetComponent<Boss3AI>().target = other.gameObject;
             }
+=======
+>>>>>>> Stashed changes
         }
     }
 }

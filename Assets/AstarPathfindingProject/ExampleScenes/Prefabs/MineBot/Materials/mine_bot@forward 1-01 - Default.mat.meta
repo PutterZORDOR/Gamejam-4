@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream
 guid: 8484bd09122784e76947d262ed126b1c
+=======
+<<<<<<<< Updated upstream:Assets/AstarPathfindingProject/ExampleScenes/Prefabs/MineBot/Materials/mine_bot@forward 1-01 - Default.mat.meta
+guid: 8484bd09122784e76947d262ed126b1c
+========
+guid: 5ca72efa0b763e94fb7399a85f19b928
+>>>>>>>> Stashed changes:Assets/Toon Fantasy Nature/Post Processing/TFF_Day_1.asset.meta
+>>>>>>> Stashed changes
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 2100000
