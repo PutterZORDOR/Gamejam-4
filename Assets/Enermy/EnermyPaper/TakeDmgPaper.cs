@@ -7,6 +7,7 @@ public class TakeDmgPaper : MonoBehaviour
 {
     public int Hp = 100;
     private bool canHit = true;
+    public int PlusScore = 100;
 
     public void TakeHitPaper(int DmgToPaper)
     {
@@ -34,6 +35,7 @@ public class TakeDmgPaper : MonoBehaviour
     {
         Debug.Log("ตาย");
         Destroy(gameObject);
+        ScoreCon.instance.AddScore(PlusScore);
     }
 
 

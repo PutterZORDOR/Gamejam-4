@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TakeDamageHammer : MonoBehaviour
+public class TakeDamgeBoss3 : MonoBehaviour
 {
-    public int Hp = 40;
-    public int PlusScore = 100;
+    public int Hp = 500;
+    public int PlusScore = 500;
 
-    public void TakeHitHammer(int DmgToHammer)
+    public void TakeHitBoss3(int DmgToBoss3)
     {
-        Hp -= DmgToHammer;
+        Hp -= DmgToBoss3;
         StartCoroutine(HitEffect());
 
         if (Hp <= 0)
@@ -35,6 +35,4 @@ public class TakeDamageHammer : MonoBehaviour
         Destroy(gameObject);
         ScoreCon.instance.AddScore(PlusScore);
     }
-
-    
 }

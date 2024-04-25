@@ -23,11 +23,31 @@ public class bulletKang : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("ScissorsEnermy"))
+        if (other.gameObject.CompareTag("PaperEnermy"))
         {
-            
-            Destroy(gameObject);
-            other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
+            if (other.gameObject.name == "Dummy")
+            {
+                Destroy(gameObject);
+                other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss1")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss1>().TakeHitBoss1(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss2")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss2>().TakeHitBoss2(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss3")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss3>().TakeHitBoss3(Dmg);
+            }
         }
 
         if (other.gameObject.CompareTag("Environment"))

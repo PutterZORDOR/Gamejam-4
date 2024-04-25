@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -32,8 +32,10 @@ public class BOSS2NEW1 : MonoBehaviour
         targetPos = waypoint[pointIndex].transform.position;
     }
 
+
     private void Update()
     {
+
         var step =  speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
 

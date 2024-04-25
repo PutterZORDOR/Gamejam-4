@@ -26,11 +26,32 @@ public class bulletDown : MonoBehaviour
         if (other.gameObject.CompareTag("ScissorsEnermy"))
         {
 
-            Destroy(gameObject);
-            other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
+            if (other.gameObject.name == "MangKud")
+            {
+                Destroy(gameObject);
+                other.gameObject.GetComponent<TakeDMGScissor>().TakeHitScissor(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss1")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss1>().TakeHitBoss1(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss2")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss2>().TakeHitBoss2(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss3")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss3>().TakeHitBoss3(Dmg);
+            }
+
+
         }
-
-
     }
 
     private IEnumerator DestroyBulletAfterTime(float delay)
