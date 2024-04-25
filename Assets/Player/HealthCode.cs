@@ -65,34 +65,7 @@ public class HealthCode : MonoBehaviour
 
    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("HammerEnermy"))
-        {
-            if (isDead == false)
-            {
-                TakeDamage(other.gameObject.GetComponent<EnermyHammer>().DMG);
-            }
-        }
-
-        if (other.CompareTag("ScissorsEnermy"))
-        {
-            if (isDead == false)
-            {
-                TakeDamage(other.gameObject.GetComponent<EnermyScissors>().DMG);
-            }
-        }
-
-        if (other.CompareTag("PaperEnermy"))
-        {
-            if (isDead == false)
-            {
-                TakeDamage(other.gameObject.GetComponent<EnermyHammer>().DMG);
-            }
-        }
-    }
-
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         Health -= damage;
     }

@@ -15,11 +15,23 @@ public class TakeDamageHammer : MonoBehaviour
     public void TakeHitHammer(int DmgToHammer)
     {
         Hp -= DmgToHammer;
+        StartCoroutine(HitEffect());
 
         if (Hp <= 0)
         {
             Die();
         }
+    }
+
+    private IEnumerator HitEffect()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+        yield return new WaitForSeconds(.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        yield return new WaitForSeconds(.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
+        yield return new WaitForSeconds(.1f);
+        gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     public void Die()

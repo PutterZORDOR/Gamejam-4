@@ -14,6 +14,7 @@ public class BOSS2NEW1 : MonoBehaviour
     int pointIndex;
     int pointCount;
     int direction = 1;
+    private bool canHit = true;
     private void Awake()
     {
         waypoint = new Transform[ways.transform.childCount];
@@ -47,14 +48,54 @@ public class BOSS2NEW1 : MonoBehaviour
         if(pointIndex == pointCount-1) 
         {
             direction = -1;
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
 
         if(pointIndex == 0 )
         {
             direction = 1;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
 
         pointIndex += direction;
         targetPos = waypoint[pointIndex].transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && canHit == true)
+        {
+            HealthCode playerHP = other.gameObject.GetComponent<HealthCode>();
+            if (playerHP != null)
+            {
+                playerHP.TakeDamage(1);
+                canHit = false;
+                StartCoroutine(Delayhit(2));
+            }
+        }
+
+
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && canHit == true)
+        {
+            HealthCode playerHP = other.gameObject.GetComponent<HealthCode>();
+            if (playerHP != null)
+            {
+                playerHP.TakeDamage(1);
+                canHit = false;
+                StartCoroutine(Delayhit(2));
+            }
+        }
+
+
+    }
+    private IEnumerator Delayhit(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        canHit = true;
+
     }
 }
