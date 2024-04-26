@@ -40,6 +40,6 @@ public class TakeDamgeBoss1 : MonoBehaviour
         
         Debug.Log("ตาย");
         Destroy(gameObject);
-        scoreControl.AddPointEnermy();
+        scoreControl.AddPointBoss();
     }
 }

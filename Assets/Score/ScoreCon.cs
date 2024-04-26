@@ -31,4 +31,9 @@ public class ScoreCon : MonoBehaviour
     {
         Score += 100;
     }
+
+    public void AddPointBoss()
+    {
+        Score += 500;
+    }
 }

@@ -20,7 +20,7 @@ public class TakeDamgeBoss2 : MonoBehaviour
         if (Hp <= 0)
         {
             Die();
-            scoreControl.AddPointEnermy();
+            scoreControl.AddPointBoss();
         }
     }
 
