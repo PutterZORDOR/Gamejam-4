@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class TakeDMGScissor : MonoBehaviour
 {
-    public int Hp;
+    public int Hp = 20;
     public int PlusScore = 100;
     private Animator anim;
+    public GameObject fire;
 
     private void Awake()
     {
@@ -29,8 +30,8 @@ public class TakeDMGScissor : MonoBehaviour
 
     public void Die()
     {
+        Instantiate(fire, transform.position, Quaternion.identity);
         Destroy(gameObject);
-        ScoreCon.instance.AddScore(PlusScore);
     }
 
     private IEnumerator HitEffect()

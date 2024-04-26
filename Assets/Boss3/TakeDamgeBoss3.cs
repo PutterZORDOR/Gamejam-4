@@ -31,8 +31,8 @@ public class TakeDamgeBoss3 : MonoBehaviour
 
     public void Die()
     {
+        
         Debug.Log("ตาย");
         Destroy(gameObject);
-        ScoreCon.instance.AddScore(PlusScore);
     }
 }

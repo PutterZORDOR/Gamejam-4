@@ -10,6 +10,7 @@ public class TakeDmgPaper : MonoBehaviour
     public int PlusScore = 100;
     public Transform other;
     private Animator anim;
+    public GameObject fire;
 
     private void Awake()
     {
@@ -27,18 +28,7 @@ public class TakeDmgPaper : MonoBehaviour
             Die();
         }
     }
-    private void Update()
-    {
-        float dist = Vector2.Distance(other.position, transform.position);
-        if(dist > 13)
-        {
-            anim.SetBool("walk",false);
-        }
-        if (dist < 13)
-        {
-            anim.SetBool("walk", true);
-        }
-    }
+    
 
     private IEnumerator HitEffect()
     {
@@ -55,10 +45,10 @@ public class TakeDmgPaper : MonoBehaviour
 
     public void Die()
     {
+        Instantiate(fire, transform.position, Quaternion.identity);
         Debug.Log("ตาย");
         SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.hurtenermy);
         Destroy(gameObject);
-        ScoreCon.instance.AddScore(PlusScore);
     }
 
 

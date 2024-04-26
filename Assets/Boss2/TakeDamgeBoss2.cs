@@ -31,8 +31,9 @@ public class TakeDamgeBoss2 : MonoBehaviour
 
     public void Die()
     {
+        
+        SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.hurtenermy);
         Debug.Log("ตาย");
         Destroy(gameObject);
-        ScoreCon.instance.AddScore(PlusScore);
     }
 }

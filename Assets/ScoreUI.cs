@@ -5,4 +5,5 @@ using TMPro;
 
 public class ScoreUI : MonoBehaviour
 {
+  
 }
