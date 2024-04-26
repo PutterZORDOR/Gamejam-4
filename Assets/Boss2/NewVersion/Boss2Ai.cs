@@ -7,6 +7,7 @@ public class Boss2Ai : MonoBehaviour
     public GameObject target;
     public Vector3 DefaultPos;
     public GameObject enemy;
+    public AudioSource Dash;
     private bool db = false;
     private bool Enemyadded = false;
     private float startTime;
@@ -48,6 +49,7 @@ public class Boss2Ai : MonoBehaviour
             yield return new WaitForSeconds (2f);
             gameObject.transform.position = target.transform.position + new Vector3(-10,0,0);
             yield return new WaitForSeconds (.1f);
+            Dash.Play();
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * 20;
             yield return new WaitForSeconds (3f);
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -68,6 +70,7 @@ public class Boss2Ai : MonoBehaviour
             yield return new WaitForSeconds (2f);
             gameObject.transform.position = target.transform.position + new Vector3(-10,0,0);
             yield return new WaitForSeconds (.1f);
+             Dash.Play();
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * 20;
             yield return new WaitForSeconds (3f);
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
