@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class bulletKang : MonoBehaviour
     public Rigidbody2D rb;
     public float speed = 20f;
     public float bulletLifetime = 2.5f;
+    public GameObject Impact;
 
     private void Start()
     {
@@ -28,6 +30,7 @@ public class bulletKang : MonoBehaviour
         {
             if (other.gameObject.name == "Dummy")
             {
+                Instantiate(Impact, other.transform);
                 Destroy(gameObject);
                 other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
             }
@@ -53,13 +56,13 @@ public class bulletKang : MonoBehaviour
 
         if (other.gameObject.CompareTag("Environment"))
         {
+            Instantiate(Impact, other.transform);
             Destroy(gameObject);
             other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
         }
 
         
     }
-
     private IEnumerator DestroyBulletAfterTime(float delay)
     {
         yield return new WaitForSeconds(delay);

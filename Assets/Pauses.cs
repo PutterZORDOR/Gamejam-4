@@ -10,10 +10,12 @@ public class Pauses : MonoBehaviour
     public GameObject pauseMenuUI;
     public GameObject VolumeMenu;
     public GameObject Back;
+    public GameObject SFX;
+    private bool canswitch = true;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && canswitch == true)
         {
             if(GameisPause)
             {
@@ -48,15 +50,20 @@ public class Pauses : MonoBehaviour
 
     public void SettingButton()
     {
+        SFX.SetActive(true);
         VolumeMenu.SetActive(true);
         Back.SetActive(true);
         pauseMenuUI.SetActive(false);
+        canswitch = false;
 
     }
 
     public void BackMenu()
     {
+        SFX.SetActive(false );
+        Back.SetActive(false);
         VolumeMenu.SetActive(false);
         pauseMenuUI.SetActive(true );
+        canswitch = true;
     }
 }

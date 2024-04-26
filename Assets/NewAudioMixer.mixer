@@ -72,6 +72,8 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
+  - guid: a658e5a075362e942a74493e9a658973
+    name: KKK
   - guid: 7b798d0812e53a0428f3059af991bbe9
     name: DDD
   m_AudioMixerGroupViews:
