@@ -77,7 +77,7 @@ public class HealthCode : MonoBehaviour
 
    void HitSound()
    {
-        SoundManager.instance.playerch1.PlayOneShot(SoundManager.instance.playerTakeHit);
+        SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.playerTakeHit);
    }
 
    IEnumerator HitEffect ()

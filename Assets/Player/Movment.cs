@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Movment : MonoBehaviour
 {
@@ -20,9 +22,8 @@ public class Movment : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
-    
-    [SerializeField] private TrailRenderer tr;
-    
+
+    private bool sound = true;
 
     private void Start()
     {
@@ -48,6 +49,7 @@ public class Movment : MonoBehaviour
     {
         if (IsGrounded() == true && Input.GetButtonDown("Jump"))
         {
+            SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.jump);
             IsJumping = true;
             JumpTime = JumpStartTime;
             rb.velocity = Vector2.up * jumpingPower;
@@ -87,6 +89,7 @@ public class Movment : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        
     }
     private bool IsGrounded()
     {
@@ -104,7 +107,6 @@ public class Movment : MonoBehaviour
 
         if (!Mathf.Approximately(0, horizontal))
         Character.transform.rotation = horizontal < 0 ? Quaternion.Euler(0,180,0) : Quaternion.identity;
-    }    
-    
-
+    }
+   
 }

@@ -160,7 +160,7 @@ TextureImporter:
         width: 96
         height: 97
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -168,6 +168,27 @@ TextureImporter:
       bones: []
       spriteID: a0109a36d7482ee4da14529afd8777a9
       internalID: 576359065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI ICONS_WHITE_pixel art_Sprite Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 3
+        width: 120
+        height: 121
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c5564de679ab1e49bd3a42ed10ccd69
+      internalID: 776247022
       vertices: []
       indices: 
       edges: []
@@ -186,6 +207,7 @@ TextureImporter:
       UI ICONS_WHITE_pixel art_Sprite Sheet_0: 1293637734
       UI ICONS_WHITE_pixel art_Sprite Sheet_1: -509755197
       UI ICONS_WHITE_pixel art_Sprite Sheet_2: 576359065
+      UI ICONS_WHITE_pixel art_Sprite Sheet_3: 776247022
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

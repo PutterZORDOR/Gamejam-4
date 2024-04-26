@@ -5,11 +5,19 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
 
-    public AudioSource playerch1;
     public AudioClip playerTakeHit;
     public AudioClip playerSword;
     public AudioClip playerShoot;
     public AudioClip playerThrow;
+    public AudioClip jump;
+
+    public AudioClip hurtenermy;
+
+    public AudioSource music;
+    public AudioSource SFX;
+
+    public AudioClip BGM;
+    
     public static SoundManager instance { get; set; }
 
     private void Awake()
@@ -22,5 +30,12 @@ public class SoundManager : MonoBehaviour
         {
             instance = this;
         }
+
+        
+    }
+    private void Start()
+    {
+        music.clip = BGM;
+        music.Play();
     }
 }

@@ -56,6 +56,7 @@ public class TakeDmgPaper : MonoBehaviour
     public void Die()
     {
         Debug.Log("ตาย");
+        SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.hurtenermy);
         Destroy(gameObject);
         ScoreCon.instance.AddScore(PlusScore);
     }

@@ -8,6 +8,8 @@ public class Pauses : MonoBehaviour
 {
    public static bool  GameisPause =  false;
     public GameObject pauseMenuUI;
+    public GameObject VolumeMenu;
+    public GameObject Back;
 
     private void Update()
     {
@@ -44,8 +46,17 @@ public class Pauses : MonoBehaviour
         GameisPause = false;
     }
 
-    void SettingButton()
+    public void SettingButton()
     {
+        VolumeMenu.SetActive(true);
+        Back.SetActive(true);
+        pauseMenuUI.SetActive(false);
 
+    }
+
+    public void BackMenu()
+    {
+        VolumeMenu.SetActive(false);
+        pauseMenuUI.SetActive(true );
     }
 }

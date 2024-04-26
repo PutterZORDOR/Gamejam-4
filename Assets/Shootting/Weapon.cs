@@ -16,6 +16,7 @@ public class Weapon : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
+                
                 nextAttack = Time.time + 1f / attackRate;
 
             }
