@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -15,8 +15,10 @@ public class BOSS2NEW1 : MonoBehaviour
     int pointCount;
     int direction = 1;
     private bool canHit = true;
+    private Animator anim;
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         waypoint = new Transform[ways.transform.childCount];
         for(int i = 0; i < ways.gameObject.transform.childCount; i++)
         {
@@ -32,8 +34,10 @@ public class BOSS2NEW1 : MonoBehaviour
         targetPos = waypoint[pointIndex].transform.position;
     }
 
+
     private void Update()
     {
+
         var step =  speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPos, step);
 
@@ -68,6 +72,8 @@ public class BOSS2NEW1 : MonoBehaviour
             HealthCode playerHP = other.gameObject.GetComponent<HealthCode>();
             if (playerHP != null)
             {
+                anim.SetTrigger("Attack");
+                anim.SetBool("isWalking",false);
                 playerHP.TakeDamage(1);
                 canHit = false;
                 StartCoroutine(Delayhit(2));
@@ -84,6 +90,8 @@ public class BOSS2NEW1 : MonoBehaviour
             HealthCode playerHP = other.gameObject.GetComponent<HealthCode>();
             if (playerHP != null)
             {
+                anim.SetTrigger("Attack");
+                anim.SetBool("isWalking",false);
                 playerHP.TakeDamage(1);
                 canHit = false;
                 StartCoroutine(Delayhit(2));
@@ -94,8 +102,11 @@ public class BOSS2NEW1 : MonoBehaviour
     }
     private IEnumerator Delayhit(int delay)
     {
+        
         yield return new WaitForSeconds(delay);
         canHit = true;
+        anim.SetBool("isWalking", true);
+
 
     }
 }

@@ -7,10 +7,19 @@ public class TakeDmgPaper : MonoBehaviour
 {
     public int Hp = 100;
     private bool canHit = true;
+    public int PlusScore = 100;
+    public Transform other;
+    private Animator anim;
 
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+        anim.SetBool("walk", true);
+    }
     public void TakeHitPaper(int DmgToPaper)
     {
         Hp -= DmgToPaper;
+        anim.SetBool("walk", false);
         StartCoroutine(HitEffect());
 
         if (Hp <= 0) 
@@ -18,9 +27,22 @@ public class TakeDmgPaper : MonoBehaviour
             Die();
         }
     }
+    private void Update()
+    {
+        float dist = Vector2.Distance(other.position, transform.position);
+        if(dist > 13)
+        {
+            anim.SetBool("walk",false);
+        }
+        if (dist < 13)
+        {
+            anim.SetBool("walk", true);
+        }
+    }
 
     private IEnumerator HitEffect()
     {
+        anim.SetTrigger("takedmg");
         gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         yield return new WaitForSeconds(.1f);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
@@ -28,12 +50,14 @@ public class TakeDmgPaper : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = Color.grey;
         yield return new WaitForSeconds(.1f);
         gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        anim.SetBool("walk", true);
     }
 
     public void Die()
     {
         Debug.Log("ตาย");
         Destroy(gameObject);
+        ScoreCon.instance.AddScore(PlusScore);
     }
 
 
@@ -47,6 +71,8 @@ public class TakeDmgPaper : MonoBehaviour
             {
                 playerHP.TakeDamage(1);
                 canHit = false;
+                anim.SetBool("walk",false);
+                anim.SetTrigger("attack");
                 StartCoroutine(Delayhit(2));
             }
         }
@@ -62,6 +88,8 @@ public class TakeDmgPaper : MonoBehaviour
             if (playerHP != null)
             {
                 playerHP.TakeDamage(1);
+                anim.SetTrigger("attack");
+                anim.SetBool("walk", false);
                 canHit = false;
                 StartCoroutine(Delayhit(2));
             }
@@ -71,8 +99,10 @@ public class TakeDmgPaper : MonoBehaviour
     }
     private IEnumerator Delayhit(int delay)
     {
+        
         yield return new WaitForSeconds(delay);
         canHit = true;
+        anim.SetBool("walk", true);
 
     }
 }
