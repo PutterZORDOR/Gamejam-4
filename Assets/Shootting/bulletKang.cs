@@ -14,6 +14,7 @@ public class bulletKang : MonoBehaviour
     private void Start()
     {
         rb.velocity = transform.right * speed;
+        SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.playerShoot);
     }
 
     private void Update()

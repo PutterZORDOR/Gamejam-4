@@ -8,6 +8,7 @@ TagManager:
   - HammerEnermy
   - ScissorsEnermy
   - PaperEnermy
+  - Grass
   layers:
   - Default
   - TransparentFX

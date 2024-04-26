@@ -27,8 +27,9 @@ public class WeaponCombat : MonoBehaviour
     private void Attack()
     {
         Collider2D[] hitEnermy =  Physics2D.OverlapCircleAll(attackPoint.position,attackRange,enermyLayer);
+        SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.playerSword);
 
-        foreach(Collider2D enermy in hitEnermy)
+        foreach (Collider2D enermy in hitEnermy)
         {
             if(enermy.gameObject.name == "Gasu")
                enermy.GetComponent<TakeDamageHammer>().TakeHitHammer(attackDMG);

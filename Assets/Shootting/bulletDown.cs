@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -14,12 +15,15 @@ public class bulletDown : MonoBehaviour
     private void Start()
     {
         rb.velocity = transform.right * speed;
+       
     }
 
     private void Update()
     {
         StartCoroutine(DestroyBulletAfterTime(bulletLifetime));
     }
+
+   
 
     public void OnTriggerEnter2D(Collider2D other)
     {

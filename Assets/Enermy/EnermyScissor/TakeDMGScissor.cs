@@ -22,6 +22,7 @@ public class TakeDMGScissor : MonoBehaviour
         
         if (Hp <= 0)
         {
+            SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.hurtenermy);
             Die();
         }
     }
