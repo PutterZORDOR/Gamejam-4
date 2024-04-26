@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Pauses : MonoBehaviour
 {
@@ -34,5 +35,17 @@ public class Pauses : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameisPause = true;
+    }
+
+    public void ResumeButton()
+    {
+        pauseMenuUI.SetActive(false);
+        Time.timeScale = 1f;
+        GameisPause = false;
+    }
+
+    void SettingButton()
+    {
+
     }
 }
