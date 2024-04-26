@@ -14,6 +14,9 @@ public class Movment : MonoBehaviour
     public GameObject Character;
     public bool isFacingRight = true;
 
+    private float Checkhorizontal;
+    private Animator animator;
+
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
@@ -23,13 +26,16 @@ public class Movment : MonoBehaviour
 
     private void Start()
     {
-       
+       animator = Character.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Checkhorizontal = Input.GetAxis("Horizontal") * speed;
+
+        animator.SetFloat("Speed", Mathf.Abs(Checkhorizontal));
+
         horizontal = Input.GetAxis("Horizontal");
        // Debug.Log(IsJumping);
         Jump();

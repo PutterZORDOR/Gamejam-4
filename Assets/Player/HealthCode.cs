@@ -20,6 +20,9 @@ public class HealthCode : MonoBehaviour
     public Image[] Heart;
     public Sprite fullHeart;
     public Sprite empthyHeart;
+    public AnimatorOverrideController Normal;
+    public AnimatorOverrideController Medium;
+    public AnimatorOverrideController Low;
 
     void Start()
    {
@@ -48,6 +51,27 @@ public class HealthCode : MonoBehaviour
          OldHealth = Health;
          StartCoroutine(HitEffect());
          HitSound();
+      }
+
+
+      ChangeDetailCharacter();
+   }
+
+
+
+   void ChangeDetailCharacter ()
+   {
+      if (Health > 4)
+      {
+         player.GetComponent<Animator>().runtimeAnimatorController = Normal as AnimatorOverrideController;
+      }
+      if (Health <= 3)
+      {
+         player.GetComponent<Animator>().runtimeAnimatorController = Medium as AnimatorOverrideController;
+      }
+      if (Health <= 1)
+      {
+         player.GetComponent<Animator>().runtimeAnimatorController = Low as AnimatorOverrideController;
       }
    }
 
