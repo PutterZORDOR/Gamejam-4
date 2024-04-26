@@ -27,10 +27,21 @@ public class WeaponCombat : MonoBehaviour
     private void Attack()
     {
         Collider2D[] hitEnermy =  Physics2D.OverlapCircleAll(attackPoint.position,attackRange,enermyLayer);
+        SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.playerSword);
 
-        foreach(Collider2D enermy in hitEnermy)
+        foreach (Collider2D enermy in hitEnermy)
         {
-            enermy.GetComponent<TakeDamageHammer>().TakeHitHammer(attackDMG);
+            if(enermy.gameObject.name == "Gasu")
+               enermy.GetComponent<TakeDamageHammer>().TakeHitHammer(attackDMG);
+
+            if (enermy.gameObject.name == "Boss1")
+                enermy.GetComponent<TakeDamgeBoss1>().TakeHitBoss1(attackDMG);
+
+            if (enermy.gameObject.name == "Boss2")
+                enermy.GetComponent<TakeDamgeBoss2>().TakeHitBoss2(attackDMG);
+
+            if (enermy.gameObject.name == "Boss3")
+                enermy.GetComponent<TakeDamgeBoss3>().TakeHitBoss3(attackDMG);
         }
     }
 

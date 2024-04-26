@@ -40,6 +40,7 @@ public class Boss1 : MonoBehaviour
         if (ran == 1)
         {
             Instantiate(ProjectileOBJ, firepointRight.position, firepointRight.rotation);
+            gameObject.tag = "PaperEnermy";
         }
         if (ran == 2)
         {
@@ -49,6 +50,7 @@ public class Boss1 : MonoBehaviour
         {
             Instantiate(ProjectileOBJ2, firepointRightX.position, firepointRightX.rotation);
             Instantiate(ProjectileOBJ2, firepointLeftX.position, firepointLeftX.rotation);
+            gameObject.tag = "ScissorsEnermy";
         }
         if (ran == 4)
         {
@@ -64,6 +66,7 @@ public class Boss1 : MonoBehaviour
              _PJ2.transform.parent = _MAINPOS.transform;
             GameObject _PJ3 = Instantiate(ProjectileOBJ3, Pos3.transform.position, Pos3.transform.rotation);
              _PJ3.transform.parent = _MAINPOS.transform;
+            gameObject.tag = "HammerEnermy";
         }
 
         yield return new WaitForSeconds(1f);

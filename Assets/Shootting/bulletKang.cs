@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
@@ -10,10 +11,12 @@ public class bulletKang : MonoBehaviour
     public Rigidbody2D rb;
     public float speed = 20f;
     public float bulletLifetime = 2.5f;
+    public GameObject Impact;
 
     private void Start()
     {
         rb.velocity = transform.right * speed;
+        SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.playerShoot);
     }
 
     private void Update()
@@ -23,22 +26,43 @@ public class bulletKang : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("ScissorsEnermy"))
+        if (other.gameObject.CompareTag("PaperEnermy"))
         {
-            
-            Destroy(gameObject);
-            other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
+            if (other.gameObject.name == "Dummy")
+            {
+                Instantiate(Impact, other.transform);
+                Destroy(gameObject);
+                other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss1")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss1>().TakeHitBoss1(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss2")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss2>().TakeHitBoss2(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss3")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss3>().TakeHitBoss3(Dmg);
+            }
         }
 
         if (other.gameObject.CompareTag("Environment"))
         {
+            Instantiate(Impact, other.transform);
             Destroy(gameObject);
             other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
         }
 
         
     }
-
     private IEnumerator DestroyBulletAfterTime(float delay)
     {
         yield return new WaitForSeconds(delay);

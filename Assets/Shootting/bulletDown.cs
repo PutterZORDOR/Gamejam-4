@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
@@ -14,6 +15,7 @@ public class bulletDown : MonoBehaviour
     private void Start()
     {
         rb.velocity = transform.right * speed;
+       
     }
 
     private void Update()
@@ -21,16 +23,39 @@ public class bulletDown : MonoBehaviour
         StartCoroutine(DestroyBulletAfterTime(bulletLifetime));
     }
 
+   
+
     public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("ScissorsEnermy"))
         {
 
-            Destroy(gameObject);
-            other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
+            if (other.gameObject.name == "MangKud")
+            {
+                Destroy(gameObject);
+                other.gameObject.GetComponent<TakeDMGScissor>().TakeHitScissor(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss1")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss1>().TakeHitBoss1(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss2")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss2>().TakeHitBoss2(Dmg);
+            }
+
+            if (other.gameObject.name == "Boss3")
+            {
+                Destroy(gameObject);
+                other.GetComponent<TakeDamgeBoss3>().TakeHitBoss3(Dmg);
+            }
+
+
         }
-
-
     }
 
     private IEnumerator DestroyBulletAfterTime(float delay)

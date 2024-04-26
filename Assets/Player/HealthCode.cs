@@ -29,6 +29,9 @@ public class HealthCode : MonoBehaviour
     public Image[] Heart;
     public Sprite fullHeart;
     public Sprite empthyHeart;
+    public AnimatorOverrideController Normal;
+    public AnimatorOverrideController Medium;
+    public AnimatorOverrideController Low;
 
     void Start()
 =======
@@ -70,7 +73,34 @@ public class HealthCode : MonoBehaviour
       {
          OldHealth = Health;
          StartCoroutine(HitEffect());
+         HitSound();
       }
+
+
+      ChangeDetailCharacter();
+   }
+
+
+
+   void ChangeDetailCharacter ()
+   {
+      if (Health > 4)
+      {
+         player.GetComponent<Animator>().runtimeAnimatorController = Normal as AnimatorOverrideController;
+      }
+      if (Health <= 3)
+      {
+         player.GetComponent<Animator>().runtimeAnimatorController = Medium as AnimatorOverrideController;
+      }
+      if (Health <= 1)
+      {
+         player.GetComponent<Animator>().runtimeAnimatorController = Low as AnimatorOverrideController;
+      }
+   }
+
+   void HitSound()
+   {
+        SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.playerTakeHit);
    }
 
    IEnumerator HitEffect ()
@@ -92,34 +122,7 @@ public class HealthCode : MonoBehaviour
 
    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("HammerEnermy"))
-        {
-            if (isDead == false)
-            {
-                TakeDamage(other.gameObject.GetComponent<EnermyHammer>().DMG);
-            }
-        }
-
-        if (other.CompareTag("ScissorsEnermy"))
-        {
-            if (isDead == false)
-            {
-                TakeDamage(other.gameObject.GetComponent<EnermyScissors>().DMG);
-            }
-        }
-
-        if (other.CompareTag("PaperEnermy"))
-        {
-            if (isDead == false)
-            {
-                TakeDamage(other.gameObject.GetComponent<EnermyHammer>().DMG);
-            }
-        }
-    }
-
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         Health -= damage;
     }

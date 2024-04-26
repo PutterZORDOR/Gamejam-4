@@ -7,6 +7,7 @@ public class Boss2Ai : MonoBehaviour
     public GameObject target;
     public Vector3 DefaultPos;
     public GameObject enemy;
+    public AudioSource Dash;
     private bool db = false;
     private bool Enemyadded = false;
     private float startTime;
@@ -39,14 +40,16 @@ public class Boss2Ai : MonoBehaviour
     {
         db = true;
 
-        int ranskill = Random.Range(1,3);
+        int ranskill = Random.Range(1,4);
 
         if (ranskill == 1)
         {   
+            gameObject.tag = "PaperEnermy";
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10;
             yield return new WaitForSeconds (2f);
             gameObject.transform.position = target.transform.position + new Vector3(-10,0,0);
             yield return new WaitForSeconds (.1f);
+            Dash.Play();
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * 20;
             yield return new WaitForSeconds (3f);
             gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -57,7 +60,22 @@ public class Boss2Ai : MonoBehaviour
         {   
             Enemyadded = true;
             Instantiate(enemy, gameObject.transform.position + new Vector3(0,-5,0), gameObject.transform.rotation);
+            gameObject.tag = "ScissorsEnermy";
             yield return new WaitForSeconds (1f);
+        }
+        if (ranskill == 3)
+        {   
+            gameObject.tag = "HammerEnermy";
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10;
+            yield return new WaitForSeconds (2f);
+            gameObject.transform.position = target.transform.position + new Vector3(-10,0,0);
+            yield return new WaitForSeconds (.1f);
+             Dash.Play();
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.right * 20;
+            yield return new WaitForSeconds (3f);
+            gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            transform.position = DefaultPos;
+            yield return new WaitForSeconds (5f);
         }
         db = false;
     }
