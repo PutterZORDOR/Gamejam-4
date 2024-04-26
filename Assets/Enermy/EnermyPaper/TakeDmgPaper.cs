@@ -11,11 +11,17 @@ public class TakeDmgPaper : MonoBehaviour
     public Transform other;
     private Animator anim;
     public GameObject fire;
+    private ScoreCon scoreControl;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("walk", true);
+    }
+
+    private void Start()
+    {
+        scoreControl = GameObject.Find("KCO").GetComponent<ScoreCon>();
     }
     public void TakeHitPaper(int DmgToPaper)
     {
@@ -49,6 +55,7 @@ public class TakeDmgPaper : MonoBehaviour
         Debug.Log("ตาย");
         SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.hurtenermy);
         Destroy(gameObject);
+        scoreControl.AddPointEnermy();
     }
 
 

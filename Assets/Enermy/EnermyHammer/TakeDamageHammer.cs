@@ -8,9 +8,11 @@ public class TakeDamageHammer : MonoBehaviour
     public int PlusScore = 100;
     private ScoreCon scoreControl;
     public GameObject fire;
-    private void Awake()
+
+
+    private void Start()
     {
-        scoreControl = FindObjectOfType<ScoreCon>();
+      scoreControl =GameObject.Find("KCO").GetComponent<ScoreCon>();
     }
     public void TakeHitHammer(int DmgToHammer)
     {
@@ -40,6 +42,7 @@ public class TakeDamageHammer : MonoBehaviour
         Instantiate(fire,transform.position, Quaternion.identity);
         Debug.Log("ตาย");
         Destroy(gameObject);
+        scoreControl.AddPointEnermy();
     }
 
     

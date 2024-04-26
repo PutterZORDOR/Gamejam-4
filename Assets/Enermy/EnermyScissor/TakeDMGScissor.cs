@@ -8,12 +8,18 @@ public class TakeDMGScissor : MonoBehaviour
     public int Hp = 20;
     public int PlusScore = 100;
     private Animator anim;
+    private ScoreCon scoreControl;
     public GameObject fire;
 
     private void Awake()
     {
         anim = GetComponent<Animator>();
         anim.SetBool("isWalking", true);
+    }
+
+    private void Start()
+    {
+        scoreControl = GameObject.Find("KCO").GetComponent<ScoreCon>();
     }
     public void TakeHitScissor(int DmgToScissor)
     {
@@ -25,6 +31,7 @@ public class TakeDMGScissor : MonoBehaviour
         {
             SoundManager.instance.SFX.PlayOneShot(SoundManager.instance.hurtenermy);
             Die();
+            scoreControl.AddPointEnermy();
         }
     }
 
