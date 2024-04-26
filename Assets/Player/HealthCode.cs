@@ -15,8 +15,7 @@ public class HealthCode : MonoBehaviour
    public GameObject GameOverScene;
    public GameObject player;
    public Color whengethit;
-   public AudioSource Sound;
-   public AudioClip[] SoundPack;
+   public AudioSource HittedSound;
    [SerializeField] private bool invissible = false;
     private bool isDead = false;
     public Image[] Heart;
@@ -55,11 +54,9 @@ public class HealthCode : MonoBehaviour
 
    void HitSound()
    {
-      if (Sound != null)
+      if (HittedSound != null)
       {
-         Debug.Log("Done!");
-         Sound.clip = SoundPack[0];
-         Sound.Play();
+         HittedSound.Play();
       }
    }
 

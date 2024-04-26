@@ -856,6 +856,7 @@ GameObject:
   - component: {fileID: 233983915}
   - component: {fileID: 233983914}
   - component: {fileID: 233983917}
+  - component: {fileID: 233983920}
   - component: {fileID: 233983919}
   - component: {fileID: 233983918}
   m_Layer: 0
@@ -1056,6 +1057,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &233983920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233983912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0590ad723279eb546a0782926860df0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 50
+  PlusScore: 500
 --- !u!4 &281414580 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4411289563718612601, guid: be12f01cb6f030343adea40c8e052506,
@@ -4989,7 +5004,7 @@ PrefabInstance:
     - target: {fileID: 6391467183850216048, guid: 0c8438e12cf8ad84ab3e501d56174ab3,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -46
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5012,6 +5027,7 @@ GameObject:
   - component: {fileID: 1407637930}
   - component: {fileID: 1407637929}
   - component: {fileID: 1407637931}
+  - component: {fileID: 1407637932}
   m_Layer: 0
   m_Name: Boss3
   m_TagString: Untagged
@@ -5152,6 +5168,20 @@ MonoBehaviour:
     type: 3}
   effect1: {fileID: 1067550440}
   PosRain: {fileID: 942172446}
+--- !u!114 &1407637932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1407637926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84dcc4888982f5b47878087fca6c2cce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 70
+  PlusScore: 500
 --- !u!1 &1438064422
 GameObject:
   m_ObjectHideFlags: 0
@@ -5648,9 +5678,7 @@ MonoBehaviour:
   GameOverScene: {fileID: 1577926204}
   player: {fileID: 378258094}
   whengethit: {r: 0.9245283, g: 0.21368816, b: 0.21368816, a: 1}
-  Sound: {fileID: 1502665007}
-  SoundPack:
-  - {fileID: 8300000, guid: eb904d387610d2c4aa16034cefaa01ac, type: 3}
+  HittedSound: {fileID: 1502665007}
   invissible: 0
   Heart:
   - {fileID: 644881202}
@@ -5671,7 +5699,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 712389084768616941, guid: 3c530519bde240a47bcebc24139a01dc,
     type: 2}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: eb904d387610d2c4aa16034cefaa01ac, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -7037,6 +7065,7 @@ GameObject:
   - component: {fileID: 2029659539}
   - component: {fileID: 2029659541}
   - component: {fileID: 2029659540}
+  - component: {fileID: 2029659542}
   m_Layer: 0
   m_Name: Boss1
   m_TagString: HammerEnermy
@@ -7222,6 +7251,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2029659542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2029659534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be1efec41537fac4398a806c6a3b867f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Hp: 50
+  PlusScore: 500
 --- !u!1 &2042775301
 GameObject:
   m_ObjectHideFlags: 0
@@ -7742,7 +7785,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 53, y: -71}
+  m_AnchoredPosition: {x: 53, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2101356783
