@@ -6,7 +6,13 @@ public class TakeDamgeBoss1 : MonoBehaviour
 {
     public int Hp = 500;
     public int PlusScore = 500;
+    private ScoreCon scoreControl;
 
+
+    private void Start()
+    {
+        scoreControl = GameObject.Find("KCO").GetComponent<ScoreCon>();
+    }
     public void TakeHitBoss1(int DmgToBoss1)
     {
         Hp -= DmgToBoss1;
@@ -31,8 +37,9 @@ public class TakeDamgeBoss1 : MonoBehaviour
 
     public void Die()
     {
+        
         Debug.Log("ตาย");
         Destroy(gameObject);
-        ScoreCon.instance.AddScore(PlusScore);
+        scoreControl.AddPointBoss();
     }
 }

@@ -6,7 +6,14 @@ public class TakeDamageHammer : MonoBehaviour
 {
     public int Hp = 40;
     public int PlusScore = 100;
+    private ScoreCon scoreControl;
+    public GameObject fire;
 
+
+    private void Start()
+    {
+      scoreControl =GameObject.Find("KCO").GetComponent<ScoreCon>();
+    }
     public void TakeHitHammer(int DmgToHammer)
     {
         Hp -= DmgToHammer;
@@ -32,9 +39,10 @@ public class TakeDamageHammer : MonoBehaviour
 
     public void Die()
     {
+        Instantiate(fire,transform.position, Quaternion.identity);
         Debug.Log("ตาย");
         Destroy(gameObject);
-        ScoreCon.instance.AddScore(PlusScore);
+        scoreControl.AddPointEnermy();
     }
 
     

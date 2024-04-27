@@ -30,7 +30,7 @@ public class bulletKang : MonoBehaviour
         {
             if (other.gameObject.name == "Dummy")
             {
-                Instantiate(Impact, other.transform);
+                
                 Destroy(gameObject);
                 other.gameObject.GetComponent<TakeDmgPaper>().TakeHitPaper(Dmg);
             }

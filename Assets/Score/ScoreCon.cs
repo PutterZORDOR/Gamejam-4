@@ -2,22 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
+
+
 
 public class ScoreCon : MonoBehaviour
 {
-    public static ScoreCon instance;
-    public TMP_Text score;
-    private int ScoreNum;
+    public int Score;
+    public TMP_Text scoreText;
 
-    private void Awake()
+    private void Start()
     {
-        instance = this;
-        score = GetComponent<TMP_Text>();
+        
     }
-    public void AddScore(int Scored)
+
+    private void Update()
     {
-        ScoreNum += Scored;
-        score.text = $"Score: {ScoreNum}";
+        ShowPoint();
+    }
+
+    private void ShowPoint()
+    {
+        scoreText.text = Score.ToString();
+    }
+
+    public void AddPointEnermy()
+    {
+        Score += 100;
+    }
+
+    public void AddPointBoss()
+    {
+        Score += 500;
     }
 }
